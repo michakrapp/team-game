@@ -54,7 +54,7 @@ export const TeamGame: Game<TeamGameState> = {
     moves: {
         rollDice: ({ G, ctx, events }) => {
             // roll random dice (6)
-            const dice = Math.floor( 6 * Math.random() ) + 1;
+            const dice = Math.floor( Math.random() * 6 ) + 1;
 
             // get current player location
             const currentLocation = G.locations[parseInt(ctx.currentPlayer)] ?? 0;
