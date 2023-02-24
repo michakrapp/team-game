@@ -1,3 +1,4 @@
+import { Ctx } from 'boardgame.io';
 import type { BoardProps } from 'boardgame.io/react';
 import type { TeamGameState } from '../Game';
 
@@ -5,13 +6,19 @@ interface TeamGameProps extends BoardProps<TeamGameState> {
   // Additional custom properties for your component
 }
 
+const playerStatus = (ctx: Ctx): string | null => {
+    if (!ctx.gameover) return `Current player: ${ ctx.currentPlayer }`;
+    if (ctx.gameover.draw) return 'Draw';
+    return `Player ${ctx.gameover.winner} wins!`;
+  };
+
 export const TeamGameBoard =({ G, ctx, moves }: TeamGameProps) => {
     // Your game board
     return (
         <main style={{ margin: '10px' }}>
             <h1>Team Game</h1>
 
-            <p>Current player: { ctx.currentPlayer }</p>
+            <p>{ playerStatus(ctx) }</p>
 
             <pre>(Positions: { G.locations.toString() })</pre>
 
