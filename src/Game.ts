@@ -15,7 +15,7 @@ export const TeamGame: Game<TeamGameState> = {
         // position of players on the board
         locations: Array(ctx.numPlayers).fill(0),
         
-        // the board
+        // the boards fields
         //TODO: maybe randomize this
         cells: [
             'special',
@@ -53,16 +53,14 @@ export const TeamGame: Game<TeamGameState> = {
 
     moves: {
         rollDice: ({ G, ctx, events }) => {
-            //TODO: roll random dice (6)
+            // roll random dice (6)
             const dice = Math.floor( 6 * Math.random() ) + 1;
 
-            //TODO: get current player location
+            // get current player location
             const currentLocation = G.locations[parseInt(ctx.currentPlayer)] ?? 0;
 
-            //TODO: move player to new location and save
+            // move player to new location and save
             const newLocation = currentLocation + dice - 1;
-
-            //TODO: 
             console.log(dice + ' => ' + G.cells[newLocation]);
             
             G.locations[parseInt(ctx.currentPlayer)] = newLocation;
@@ -70,9 +68,10 @@ export const TeamGame: Game<TeamGameState> = {
             //TODO: play card from location
             //...
 
-            //TODO: end game if player reached the end
+            // end game if player reached the end
             if (newLocation > G.cells.length) {
-                events.endGame();
+                //TODO: calculate winner
+                events.endGame({ winner: ctx.currentPlayer });
             }
         },
     },
