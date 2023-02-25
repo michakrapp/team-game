@@ -1,4 +1,5 @@
 import type { Game } from "boardgame.io";
+import { cellsData } from "./Board/cells";
 
 export interface TeamGameState {
     // aka 'G', your game's state
@@ -17,33 +18,7 @@ export const TeamGame: Game<TeamGameState> = {
         
         // the boards fields
         //TODO: maybe randomize this
-        cells: [
-            'special',
-            'red',
-            'blue',
-            'green',
-
-            'special',
-            'red',
-            'blue',
-            'green',
-            'red',
-            'blue',
-            'green',
-
-            'special',
-            'red',
-            'blue',
-            'green',
-
-            'special',
-            'red',
-            'blue',
-            'green',
-            'red',
-            'blue',
-            'green',
-        ],
+        cells: cellsData,
     }),
 
     turn: {
