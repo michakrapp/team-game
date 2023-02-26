@@ -29,4 +29,3 @@ jobs:
     - run: npm ci
     - run: npm run deploy
     - run: npm test
-    - uses: actions/deploy-gh-pages@v1
