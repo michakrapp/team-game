@@ -1,5 +1,5 @@
 import type { BoardProps } from 'boardgame.io/react';
-import type { TeamGameState } from '../Game';
+import type { TeamGameState } from '../Game/Game';
 import { Cell } from './Cells/Cell';
 import { Controls } from './Controls';
 import { PlayerStatus } from './PlayerStatus';
