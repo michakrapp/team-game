@@ -30,9 +30,9 @@ export const TeamGame: Game<TeamGameState> = {
     },
 
     moves: {
-        rollDice: ({ G, ctx, events }) => {
+        rollDice: ({ G, ctx, events, random }) => {
             // roll random dice (6)
-            const dice = Math.floor( Math.random() * 6 ) + 1;
+            const dice = random.D6();
             G.dice = dice;
 
             // get current player location
