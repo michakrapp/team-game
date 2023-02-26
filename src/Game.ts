@@ -60,9 +60,10 @@ export const TeamGame: Game<TeamGameState> = {
             }
 
             //TODO: play card from location
-            //...
             let currentPlayerPocket = G.pocket[parseInt(ctx.currentPlayer)];
             G.pocket[parseInt(ctx.currentPlayer)] = currentPlayerPocket + G.cells[newLocation].id;
+
+            //...
         },
     },
 
