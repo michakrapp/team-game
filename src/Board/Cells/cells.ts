@@ -36,31 +36,20 @@ const cellGreen:CellDataProps = {
 
 export const cellsData = [
     cellStart,
-    cellSpecial,
+    
     cellRed,
     cellBlue,
     cellGreen,
 
     cellSpecial,
+    
     cellRed,
     cellBlue,
     cellGreen,
-    cellRed,
-    cellBlue,
-    cellGreen,
-
-    /*
+    
     cellSpecial,
-    cellRed,
-    cellBlue,
-    cellGreen,
 
-    cellSpecial,
     cellRed,
     cellBlue,
     cellGreen,
-    cellRed,
-    cellBlue,
-    cellGreen,
-    */
 ];
