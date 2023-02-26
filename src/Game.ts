@@ -1,11 +1,12 @@
 import type { Game } from "boardgame.io";
-import { cellsData } from "./Board/cells";
+import { CellDataProps, cellsData } from "./Board/Cells/cells";
 
 export interface TeamGameState {
     // aka 'G', your game's state
     pocket: number[],
-    cells: string[],
+    cells: CellDataProps[],
     locations: number[],
+    dice: number,
 }
 
 export const TeamGame: Game<TeamGameState> = {
@@ -19,6 +20,8 @@ export const TeamGame: Game<TeamGameState> = {
         // the boards fields
         //TODO: maybe randomize this
         cells: cellsData,
+
+        dice: 0,
     }),
 
     turn: {
@@ -30,24 +33,27 @@ export const TeamGame: Game<TeamGameState> = {
         rollDice: ({ G, ctx, events }) => {
             // roll random dice (6)
             const dice = Math.floor( Math.random() * 6 ) + 1;
+            G.dice = dice;
 
             // get current player location
             const currentLocation = G.locations[parseInt(ctx.currentPlayer)] ?? 0;
 
             // move player to new location and save
-            const newLocation = currentLocation + dice - 1;
-            console.log(dice + ' => ' + G.cells[newLocation]);
+            const newLocation = currentLocation + dice;
             
             G.locations[parseInt(ctx.currentPlayer)] = newLocation;
 
-            //TODO: play card from location
-            //...
-
             // end game if player reached the end
-            if (newLocation > G.cells.length) {
+            if (newLocation >= G.cells.length) {
                 //TODO: calculate winner
                 events.endGame({ winner: ctx.currentPlayer });
+                return;
             }
+
+            //TODO: play card from location
+            //...
+            let currentPlayerPocket = G.pocket[parseInt(ctx.currentPlayer)];
+            G.pocket[parseInt(ctx.currentPlayer)] = currentPlayerPocket + G.cells[newLocation].id;
         },
     },
 

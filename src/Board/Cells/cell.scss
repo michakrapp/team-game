@@ -1,0 +1,25 @@
+.cell {
+    border: 1px dashed;
+    margin: 5px;
+
+    .header {
+        display: inline-block;
+        padding: 5px;
+        background-color: white;
+        margin-right: 5px;
+        min-width: 100px;
+
+        &.special {
+            background-color: purple;
+        }
+        &.red {
+            background-color: red;
+        }
+        &.blue {
+            background-color: blue;
+        }
+        &.green {
+            background-color: #BADA55;
+        }
+    }
+}

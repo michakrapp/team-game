@@ -1,7 +1,9 @@
 import type { BoardProps } from 'boardgame.io/react';
 import type { TeamGameState } from '../Game';
+import { Cell } from './Cells/Cell';
 import { Controls } from './Controls';
 import { PlayerStatus } from './PlayerStatus';
+import './board.scss';
 
 interface TeamGameProps extends BoardProps<TeamGameState> {
   // Additional custom properties for your component
@@ -15,34 +17,23 @@ export const TeamGameBoard =({ G, ctx, moves }: TeamGameProps) => {
 
             <PlayerStatus ctx={ctx} />
 
+            <Controls ctx={ctx} moves={moves} />
+            <span> Dice: {G.dice}</span>
+
             <pre>(Positions: { G.locations.toString() })</pre>
 
-            <Controls ctx={ctx} moves={moves} />
+            <div className='board'>
+                { G.cells.map( (cell, index) => {
+                    let player = Object.keys(G.locations).filter( (key) => G.locations[parseInt(key)] === index);
 
-            <div
-                style={{
-                    marginTop: '10px',
-                    border: '1px solid',
-                    padding: '10px'
-                }}
-            >
-                {G.cells.map((cell, index) => (
-                    <div
-                        key={index}
-                        style={{
-                            border: '1px dashed',
-                            margin: '5px',
-                        }}
-                    >
-                        <span style={{
-                            display: 'inline-block',
-                            padding: '5px',
-                            backgroundColor: cell ?? 'white',
-                            marginRight: '5px',
-                        }}>{cell}</span>
-                        <span> (no player here)</span>
-                    </div>
-                ))}
+                    return (
+                        <Cell 
+                            index={index}
+                            cell={cell}
+                            player={ player.join(',') } 
+                        />
+                    );
+                })}
             </div>
         </main>
     );
