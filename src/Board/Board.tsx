@@ -22,6 +22,8 @@ export const TeamGameBoard =({ G, ctx, moves }: TeamGameProps) => {
 
             <pre>(Positions: { G.locations.toString() })</pre>
 
+            <pre>(Pockets: { G.pocket.toString() })</pre>
+
             <div className='board'>
                 { G.cells.map( (cell, index) => {
                     let player = Object.keys(G.locations).filter( (key) => G.locations[parseInt(key)] === index);

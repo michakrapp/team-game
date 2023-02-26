@@ -45,9 +45,18 @@ export const TeamGame: Game<TeamGameState> = {
 
             // end game if player reached the end
             if (newLocation >= G.cells.length) {
-                //TODO: calculate winner
-                events.endGame({ winner: ctx.currentPlayer });
-                return;
+                // calculate winner
+                let pockets = [...G.pocket];
+                let winner = pockets.indexOf(Math.max.apply(window,pockets));
+                let highestPocket = G.pocket[winner];
+                delete pockets[winner];
+                let draw = pockets.filter(pocket => pocket === highestPocket).length > 0;
+                if (draw) {
+                    events.endGame({ draw });
+                } else {
+                    events.endGame({ winner: winner });
+                }
+                return; // ensure that game ends now
             }
 
             //TODO: play card from location
