@@ -46,7 +46,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Install dependencies
-        if: steps.cache-npm.outputs.cache-hit != 'true'
+        # downloaded packages are cached but node_modules should be rebuild
+        # if: steps.cache-npm.outputs.cache-hit != 'true'
         run: npm ci
       - name: Build application
         run: npm run build --if-present
