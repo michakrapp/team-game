@@ -9,7 +9,7 @@ interface TeamGameProps extends BoardProps<TeamGameState> {
   // Additional custom properties for your component
 }
 
-export const TeamGameBoard =({ G, ctx, moves }: TeamGameProps) => {
+export const TeamGameBoard =({ G, ctx, moves, isActive }: TeamGameProps) => {
     // Your game board
     return (
         <main style={{ margin: '10px' }}>
@@ -17,7 +17,7 @@ export const TeamGameBoard =({ G, ctx, moves }: TeamGameProps) => {
 
             <PlayerStatus ctx={ctx} />
 
-            <Controls ctx={ctx} moves={moves} />
+            <Controls ctx={ctx} moves={moves} isActive={isActive} />
             <span> Dice: {G.dice}</span>
 
             <pre>(Positions: { G.locations.toString() })</pre>
