@@ -1,0 +1,1 @@
+{"version":3,"file":"LocalClient.js","sourceRoot":"","sources":["../../src/Client/LocalClient.tsx"],"names":[],"mappings":";;;AAAA,0DAAiD;AACjD,8CAA4C;AAC5C,0CAA+C;AAC/C,uCAAwC;AAExC,kBAAkB;AAClB,+BAA+B;AAC/B,+BAA+B;AAElB,QAAA,WAAW,GAAG,IAAA,cAAM,EAAC;IAC9B,IAAI,EAAE,eAAQ;IACd,KAAK,EAAE,qBAAa;IACpB,WAAW,EAAE,IAAA,mBAAK,GAAE;CACvB,CAAC,CAAC"}

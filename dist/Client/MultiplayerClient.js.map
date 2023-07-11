@@ -1,0 +1,1 @@
+{"version":3,"file":"MultiplayerClient.js","sourceRoot":"","sources":["../../src/Client/MultiplayerClient.tsx"],"names":[],"mappings":";;;AAAA,0DAAoD;AACpD,8CAA4C;AAC5C,0CAA+C;AAC/C,uCAAwC;AAE3B,QAAA,iBAAiB,GAAG,IAAA,cAAM,EAAC;IACpC,IAAI,EAAE,eAAQ;IACd,KAAK,EAAE,qBAAa;IACpB,WAAW,EAAE,IAAA,sBAAQ,EAAC,EAAE,MAAM,EAAE,gBAAgB,EAAE,CAAC;CACtD,CAAC,CAAC"}

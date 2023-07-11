@@ -11,6 +11,9 @@ export interface TeamGameState {
 }
 
 export const TeamGame: Game<TeamGameState> = {
+    // The name of the game.
+    name: 'team-game',
+
     setup: ({ ctx }) => ({ 
         // collect winning things here
         pocket: Array(ctx.numPlayers).fill(0),
